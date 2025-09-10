@@ -3,28 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal con Mapa Embed</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        iframe { border: 1px solid #ccc; }
-    </style>
+    <title>Proyecto Inmobiliario - Puerto Montt</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Proyecto Inmobiliario: Explicación y Mapa Embed</h1>
-    
-    <section>
-        <h2>Proceso de Scraping (Resumen)</h2>
-        <p>Utilicé Selenium para extraer datos de Yapo.cl: listados de propiedades, detalles como precio/dormitorios, y coordenadas de maps embebidos. No subo el código completo por ética, pero generé un CSV para el mapa.</p>
-    </section>
-    
-    <section>
-        <h2>Mapa</h2>
-        <!-- Embed del mapa HTML -->
-        <iframe src="mapa_propiedades.html" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
-    </section>
-    
+    <div class="container">
+        <header>
+            <h1>Proyecto Inmobiliario</h1>
+            <p class="subtitle">Análisis de Mercado Inmobiliario en Puerto Montt</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>📊 Proceso de Scraping</h2>
+                <p>Este proyecto consiste en un scraper automatizado desarrollado en Python para extraer datos de propiedades en venta publicadas en un portal inmobiliario, enfocándose en categorías como casas, departamentos y terrenos en la comuna de Puerto Montt (Región de Los Lagos).</p>
+
+                <p>El objetivo es recopilar datos estructurados para un análisis o monitoreo del mercado en la ciudad, procesando múltiples páginas de resultados y extrayendo detalles clave de cada anuncio. Y finalmente, exportando los datos a archivos CSV para fácil manipulación.</p>
+
+                <p>El código está implementado en un Jupyter notebook, simulando el comportamiento humano para evitar detecciones anti-scraping (pausas aleatorias, manejo de cookies, scrolls). Se procesan hasta un límite configurable de propiedades o número de páginas a scrapear.</p>
+
+                <div class="image-gallery">
+                    <div class="image-container">
+                        <img src="https://raw.githubusercontent.com/JuanPaillaguala/Proyecto-Portal-Inmobiliario/main/Images/Scraper.png" alt="Proceso de Scraping">
+                        <div class="image-caption">Proceso de extracción de datos</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://raw.githubusercontent.com/JuanPaillaguala/Proyecto-Portal-Inmobiliario/main/Images/Archivos%20csv.png" alt="Archivos CSV">
+                        <div class="image-caption">Archivos CSV generados</div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section>
+                <h2>🛠️ Tecnologías Utilizadas</h2>
+                <p><strong>Lenguaje y Entorno:</strong> Python 3.x con Jupyter Notebook</p>
+                
+                <div class="tech-list">
+                    <div class="tech-item">
+                        <strong>Selenium</strong><br>
+                        Navegación web automatizada y extracción dinámica
+                    </div>
+                    <div class="tech-item">
+                        <strong>Webdriver Manager</strong><br>
+                        Gestión automática del driver de Chrome
+                    </div>
+                    <div class="tech-item">
+                        <strong>Pandas</strong><br>
+                        Estructuración y exportación de datos a CSV
+                    </div>
+                    <div class="tech-item">
+                        <strong>Requests</strong><br>
+                        Extracción de valor UF desde API externa
+                    </div>
+                    <div class="tech-item">
+                        <strong>Matplotlib & Folium</strong><br>
+                        Visualización de datos y mapa interactivo
+                    </div>
+                    <div class="tech-item">
+                        <strong>Re, Time & Random</strong><br>
+                        Expresiones regulares y simulación de comportamiento humano
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>⚙️ Funcionalidades</h2>
+                
+                <div class="tech-list">
+                    <div class="tech-item">
+                        <strong>Navegación y Paginación</strong><br>
+                        Accede a la URL base de búsqueda, detecta el número total de páginas y procesa desde una página inicial configurable hasta el final.
+                    </div>
+                    <div class="tech-item">
+                        <strong>Extracción de Datos</strong><br>
+                        Identifica enlaces a anuncios individuales y extrae detalles como título, precio, ubicación, características y coordenadas GPS.
+                    </div>
+                    <div class="tech-item">
+                        <strong>Manejo de Contenido Dinámico</strong><br>
+                        Realiza scrolls para cargar elementos lazy-loaded y extrae coordenadas de iframes de Google Maps.
+                    </div>
+                    <div class="tech-item">
+                        <strong>Límites</strong><br>
+                        Límite opcional de propiedades a scrapear; guarda resultados parciales por página.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>📈 Resultados Obtenidos</h2>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-number">838</div>
+                        <div class="result-label">Propiedades Analizadas</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">99%</div>
+                        <div class="result-label">Completitud Precios</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">98%</div>
+                        <div class="result-label">Ubicación georefencial</div>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="image-container">
+                        <img src="https://raw.githubusercontent.com/JuanPaillaguala/Proyecto-Portal-Inmobiliario/main/Images/Completitud%20de%20datos.png" alt="Completitud de Datos">
+                        <div class="image-caption">Análisis de completitud de datos</div>
+                    </div>
+                </div>
+
+                <p><strong>Gráficos:</strong> Algunas gráficas con respecto al tipo de propiedades, su valor en UF y su relación entre los m² de construcción </p>
+
+                <div class="image-gallery">
+                    <div class="image-container">
+                        <img src="https://raw.githubusercontent.com/JuanPaillaguala/Proyecto-Portal-Inmobiliario/main/Images/Tipo%20de%20Propiedades.png" alt="Tipos de Propiedades">
+                        <div class="image-caption">Distribución por tipo de propiedad</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://raw.githubusercontent.com/JuanPaillaguala/Proyecto-Portal-Inmobiliario/main/Images/Distribucion%20precios.png" alt="Distribución de Precios">
+                        <div class="image-caption">Análisis de distribución de precios</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://raw.githubusercontent.com/JuanPaillaguala/Proyecto-Portal-Inmobiliario/main/Images/Relacion%20valor%20propiedad%20y%20m2%20construccion.png" alt="Relación valor-m2">
+                        <div class="image-caption">Relación entre valor y superficie construida</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="map-section">
+                <h2>🗺️ Mapa Interactivo de Propiedades</h2>
+                <p>Visualización geográfica de las propiedades analizadas en Puerto Montt, mostrando la distribución espacial y características principales de cada inmueble.</p>
+                <iframe src="mapa_propiedades.html" class="map-container" allowfullscreen></iframe>
+            </section>
+        </main>
+    </div>
+
     <footer>
-        <p>Proyecto por Juan Paillaguala | 2025</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Juan Paillaguala Villarroel. Todos los derechos reservados.</p>
+            <ul class="footer-links">
+                <li>
+                    <a href="https://www.linkedin.com/in/juan-paillaguala-villarroel" target="_blank" class="linkedin-link">
+                        <svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/juanpaillaguala" target="_blank" class="github-link">
+                        <svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+        </div>
     </footer>
+
+        <!-- Modal para agrandar las imágenes -->
+    <div class="image-modal" id="imageModal">
+        <img src="" alt="Enlarged image" id="enlargedImage">
+    </div>
+
+    <script>
+        // JavaScript para manejar el modal de imágenes
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.image-container img');
+            const modal = document.getElementById('imageModal');
+            const enlargedImage = document.getElementById('enlargedImage');
+
+            images.forEach(image => {
+                image.addEventListener('click', () => {
+                    enlargedImage.src = image.src;
+                    enlargedImage.alt = image.alt;
+                    modal.classList.add('active');
+                });
+            });
+
+            modal.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        });
+    </script>
+
 </body>
 </html>
